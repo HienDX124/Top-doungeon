@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GroundDecoration2
+  - GroundDecoration1
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,31 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground1
+    uniqueID: 815879829
+    locked: 0
+  - name: Ground2
+    uniqueID: 842607189
+    locked: 0
+  - name: Ground3Ground1
+    uniqueID: 68612147
+    locked: 0
+  - name: GroundDecoration1
+    uniqueID: 907931853
+    locked: 0
+  - name: GroundDecoration2
+    uniqueID: 477906879
+    locked: 0
+  - name: Instances
+    uniqueID: 2181654095
+    locked: 0
+  - name: Front1
+    uniqueID: 1677323847
+    locked: 0
+  - name: Front2
+    uniqueID: 2910381445
+    locked: 0
+  - name: Collisions
+    uniqueID: 3896829181
     locked: 0
