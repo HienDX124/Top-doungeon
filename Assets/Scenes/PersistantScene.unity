@@ -301,6 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.07
   maxVelocity: 4
+  attackCooldown: 0.5
   direction: 0
   animator: {fileID: 0}
   myBody: {fileID: 0}
