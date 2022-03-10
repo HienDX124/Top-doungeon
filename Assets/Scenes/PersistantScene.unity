@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 995196381}
   - component: {fileID: 995196382}
   - component: {fileID: 995196383}
+  - component: {fileID: 995196385}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -299,10 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a9e98ca331022478ebccbf1e9c3454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.07
-  maxVelocity: 4
   attackCooldown: 0.5
-  direction: 0
   animator: {fileID: 0}
   myBody: {fileID: 0}
 --- !u!210 &995196384
@@ -316,6 +314,21 @@ SortingGroup:
   m_SortingLayerID: -2113313201
   m_SortingLayer: 6
   m_SortingOrder: 0
+--- !u!114 &995196385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995196379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f427df3bb2a94b9c87fc4b675a7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  base_HP: 5
+  base_Speed: 10
+  base_Damage: 5
 --- !u!1 &1202999139
 GameObject:
   m_ObjectHideFlags: 0

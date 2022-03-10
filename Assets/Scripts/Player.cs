@@ -1,68 +1,101 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float maxVelocity;
-
     [SerializeField] private float attackCooldown = 0.5f;
-
-    [HideInInspector] public int direction = 0;
-    [HideInInspector] public const int LEFT_DIR = 0;
-    [HideInInspector] public const int RIGHT_DIR = 1;
-
     [HideInInspector] public Animator animator;
     [HideInInspector] public Rigidbody2D myBody;
     [HideInInspector] private Animator weaponAnimator;
 
+    private float xInput, yInput;
+
+    private bool isMoving;
+    private Direction playerDirection;
+    private BasicStat basicStat;
     private void Awake()
     {
+        basicStat = GetComponent<BasicStat>();
         animator = transform.Find("Body").GetComponent<Animator>();
         myBody = gameObject.GetComponent<Rigidbody2D>();
         weaponAnimator = transform.Find("Weapon").GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Move();
         Attack();
+        PlayerMovementInput();
     }
 
-    public void Move()
+    private void Update()
     {
-        Vector3 temp = transform.localScale;
-        animator.SetBool("move", true);
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction = RIGHT_DIR;
-            transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
-            temp.x = Mathf.Abs(temp.x);
-        }
+        PlayerMovement();
+    }
 
-        else if (Input.GetKey(KeyCode.A))
-        {
-            direction = LEFT_DIR;
-            transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
-            temp.x = Mathf.Abs(temp.x) * -1f;
-        }
+    private void PlayerMovement()
+    {
+        Vector2 move = new Vector2(xInput * basicStat.base_Speed * Time.deltaTime, yInput * basicStat.base_Speed * Time.deltaTime);
+        myBody.MovePosition(myBody.position + move);
+        UpdatePlayerAnimator();
+    }
 
-        else if (Input.GetKey(KeyCode.W))
+    private void UpdatePlayerAnimator()
+    {
+        animator.SetBool("move", isMoving);
+    }
+    private void UpdatePlayerDirection(Direction dir)
+    {
+        float tempX = 1;
+        if (dir == Direction.right)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed, transform.position.z);
+            tempX = Mathf.Abs(gameObject.transform.localScale.x);
         }
-
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
-        }
-
         else
         {
-            animator.SetBool("move", false);
+            tempX = Mathf.Abs(gameObject.transform.localScale.x) * -1;
+        }
+        gameObject.transform.localScale = new Vector3(tempX, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+    }
+    private void PlayerMovementInput()
+    {
+        xInput = Input.GetAxisRaw("Horizontal");
+        yInput = Input.GetAxisRaw("Vertical");
+
+        if (yInput != 0 && xInput != 0)
+        {
+            xInput = xInput * 0.71f;
+            yInput = yInput * 0.71f;
+            isMoving = true;
         }
 
-        transform.localScale = temp;
+        if (yInput != 0 || xInput != 0)
+        {
+            //  Capture player direction for save game
+            if (xInput < 0)
+            {
+                playerDirection = Direction.left;
+                UpdatePlayerDirection(playerDirection);
+            }
+            if (xInput > 0)
+            {
+                playerDirection = Direction.right;
+                UpdatePlayerDirection(playerDirection);
+            }
+            if (yInput < 0)
+            {
+                playerDirection = Direction.down;
+            }
+            if (yInput > 0)
+            {
+                playerDirection = Direction.up;
+            }
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
     }
 
     private void Attack()
