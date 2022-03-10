@@ -232,9 +232,6 @@
     <Reference Include="UnityEditor.Android.Extensions">
         <HintPath>E:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="clipper_library">
-        <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/PackageCache/com.unity.cinemachine@2.7.9/Runtime/ThirdParty/clipper_library.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
@@ -601,9 +598,6 @@
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Cinemachine">
-        <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
@@ -666,9 +660,6 @@
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-        <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
