@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 0.5f;
-    [HideInInspector] public Animator animator;
-    [HideInInspector] public Rigidbody2D myBody;
+    private Animator animator;
+    private Rigidbody2D myBody;
     [HideInInspector] private Animator weaponAnimator;
 
     private float xInput, yInput;
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("move", isMoving);
     }
-    private void UpdatePlayerDirection(Direction dir)
+    private void UpdateDirection(Direction dir)
     {
         float tempX = 1;
         if (dir == Direction.right)
@@ -75,12 +75,12 @@ public class Player : MonoBehaviour
             if (xInput < 0)
             {
                 playerDirection = Direction.left;
-                UpdatePlayerDirection(playerDirection);
+                UpdateDirection(playerDirection);
             }
             if (xInput > 0)
             {
                 playerDirection = Direction.right;
-                UpdatePlayerDirection(playerDirection);
+                UpdateDirection(playerDirection);
             }
             if (yInput < 0)
             {

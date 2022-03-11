@@ -36,6 +36,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\Dialogs\TextFieldDialog.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\Dialogs\TextValidator.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\Extensions\CenterOnWindow.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntry.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntryHolder.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceStorageAccessor.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferencesEditorWindow.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\RegistryMonitor.cs" />
+     <Compile Include="Assets\PlayerPrefsEditor\Editor\Styles.cs" />
      <Compile Include="Assets\Tilemap\Custom Brush Scripts\Coordinate Brush\Editor\CoordinateBrush.cs" />
     <Reference Include="UnityEngine">
         <HintPath>E:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -598,6 +607,9 @@
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
@@ -660,6 +672,9 @@
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
         <HintPath>F:/Unity Projects/Top doungeon (RPG)/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
