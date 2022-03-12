@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private BasicStat basicStat;
+    [HideInInspector] public BasicStat basicStat;
     private Rigidbody2D enemyBody;
     private Animator animator;
     private GameObject playerGO;
@@ -58,14 +58,12 @@ public class Enemy : MonoBehaviour
 
     }
 
-
     private IEnumerator CheckMoveDir()
     {
         var p1 = transform.position.x;
         yield return new WaitForSeconds(0.5f);
         var p2 = transform.position.x;
 
-        Debug.Log("p1: " + p1 + "; p2: " + p2);
         if (p1 < p2)
         {
             enemyDirection = Direction.right;
@@ -87,5 +85,22 @@ public class Enemy : MonoBehaviour
             tempX = Mathf.Abs(gameObject.transform.localScale.x) * -1;
         }
         gameObject.transform.localScale = new Vector3(tempX, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        if (basicStat.base_HP > 0)
+        {
+            basicStat.base_HP -= damage;
+        }
+        else
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        this.gameObject.SetActive(false);
     }
 }

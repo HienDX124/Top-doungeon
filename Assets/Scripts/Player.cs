@@ -7,19 +7,23 @@ public class Player : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.5f;
     private Animator animator;
     private Rigidbody2D myBody;
-    [HideInInspector] private Animator weaponAnimator;
+    private Animator weaponAnimator;
 
+    [SerializeField] private GameObject weaponGO;
+
+    private Weapon playerWeapon;
     private float xInput, yInput;
 
     private bool isMoving;
     private Direction playerDirection;
-    private BasicStat basicStat;
+    [HideInInspector] public BasicStat basicStat;
     private void Awake()
     {
         basicStat = GetComponent<BasicStat>();
         animator = transform.Find("Body").GetComponent<Animator>();
         myBody = gameObject.GetComponent<Rigidbody2D>();
-        weaponAnimator = transform.Find("Weapon").GetComponent<Animator>();
+        weaponAnimator = weaponGO.GetComponent<Animator>();
+        playerWeapon = weaponGO.GetComponent<Weapon>();
     }
 
     private void FixedUpdate()
@@ -104,7 +108,14 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && attackCooldown < 0)
         {
             weaponAnimator.Play("hit");
+            StartCoroutine(playerWeapon.ActiveColliderWhenAttack());
             attackCooldown = 0.5f;
         }
     }
+
+    public void CauseDamage(Enemy enemy, float damage)
+    {
+        enemy.ReceiveDamage(damage);
+    }
+
 }

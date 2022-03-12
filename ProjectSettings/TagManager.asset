@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GroundDecoration2
   - GroundDecoration1
+  - Enemy
   layers:
   - Default
   - TransparentFX
