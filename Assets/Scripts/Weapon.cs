@@ -26,6 +26,7 @@ public class Weapon : MonoBehaviour
         if (coll.gameObject.tag == "Enemy")
         {
             player.CauseDamage(coll.gameObject.GetComponent<Enemy>(), player.basicStat.base_Damage);
+            GameManager.instance.ShowText("- " + player.basicStat.base_Damage, 20, Color.red, coll.transform.position, Vector3.up * 50, 1.5f);
         }
     }
 
