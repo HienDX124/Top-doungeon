@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float delayResetMovePoint = 3f;
     [SerializeField] private float delayCauseDamage = 1f;
     [SerializeField] private bool isAttacking;
+
+    [HideInInspector] public bool _canUse;
     void Awake()
     {
         basicStat = GetComponent<BasicStat>();
@@ -32,19 +34,12 @@ public class Enemy : MonoBehaviour
         delayCauseDamage -= Time.deltaTime;
     }
 
-    private Vector3 GetRandomPositionInMap()
-    {
-        float posX = UnityEngine.Random.Range(0 - mapDetails.mapWidth / 2, mapDetails.mapWidth - mapDetails.mapWidth / 2);
-        float posY = UnityEngine.Random.Range(0 - mapDetails.mapHieght / 2, mapDetails.mapHieght - mapDetails.mapHieght / 2);
-        return new Vector3(posX, posY, 0);
-    }
-
     private void EnemyMovement()
     {
         delayResetMovePoint -= Time.deltaTime;
         if (delayResetMovePoint <= 0)
         {
-            target = GetRandomPositionInMap();
+            target = mapDetails.GetRandomPositionInMap();
             delayResetMovePoint = 3f;
         }
 
@@ -119,5 +114,14 @@ public class Enemy : MonoBehaviour
     private void Death()
     {
         this.gameObject.SetActive(false);
+        _canUse = true;
+    }
+
+    public void ReSpawn(Vector3 position)
+    {
+        basicStat.base_HP = 10;
+        _canUse = false;
+        gameObject.SetActive(true);
+        gameObject.transform.position = position;
     }
 }

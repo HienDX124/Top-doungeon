@@ -40,6 +40,7 @@
      <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Samples\SampleScene\PlayerPrefsController.cs" />
      <Compile Include="Assets\Scripts\BasicStat.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\Enums.cs" />
      <Compile Include="Assets\Scripts\FloatingText.cs" />
      <Compile Include="Assets\Scripts\FloatingTextManager.cs" />
