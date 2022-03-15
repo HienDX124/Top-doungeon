@@ -7,7 +7,7 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBe
     {
         if (instance != null && instance != this)
         {
-            Destroy(this);
+            Destroy(instance.gameObject);
             throw new System.Exception("An instance of this singleton already exists.");
         }
         else

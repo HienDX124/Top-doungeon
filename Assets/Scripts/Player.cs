@@ -68,8 +68,8 @@ public class Player : MonoBehaviour
 
         if (yInput != 0 && xInput != 0)
         {
-            xInput = xInput * 0.71f;
-            yInput = yInput * 0.71f;
+            xInput = xInput * 0.6f;
+            yInput = yInput * 0.6f;
             isMoving = true;
         }
 
@@ -132,7 +132,6 @@ public class Player : MonoBehaviour
     public void CauseDamage(Enemy enemy, float damage)
     {
         enemy.ReceiveDamage(damage);
-
         GameManager.instance.ShowText("- " + basicStat.base_Damage, 20, Color.red, enemy.transform.position, Vector3.up * 50, 1.5f);
     }
 

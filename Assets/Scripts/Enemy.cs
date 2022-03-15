@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float delayResetMovePoint = 3f;
     [SerializeField] private float delayCauseDamage = 1f;
     [SerializeField] private bool isAttacking;
-
     [HideInInspector] public bool _canUse;
     void Awake()
     {
@@ -32,6 +31,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(CheckMoveDir());
         UpdateDirection(enemyDirection);
         delayCauseDamage -= Time.deltaTime;
+        if (basicStat.base_HP <= 0) Death();
     }
 
     private void EnemyMovement()
@@ -97,14 +97,13 @@ public class Enemy : MonoBehaviour
 
     public void CauseDamageByCollision(Player player, float damage)
     {
-        Debug.Log("CauseDamageByCollision call back, delayCauseDamage: " + delayCauseDamage);
         if (delayCauseDamage < 0)
         {
             player.ReceiveDamage(damage);
 
             GameManager.instance.ShowText("- " + basicStat.base_Damage, 20, Color.red, player.transform.position, Vector3.up * 50, 1.5f);
 
-            delayCauseDamage = 1;
+            delayCauseDamage = 1f;
         }
         else
         {
@@ -113,6 +112,7 @@ public class Enemy : MonoBehaviour
 
     private void Death()
     {
+        Debug.Log("Death call back");
         this.gameObject.SetActive(false);
         _canUse = true;
     }
@@ -123,5 +123,13 @@ public class Enemy : MonoBehaviour
         _canUse = false;
         gameObject.SetActive(true);
         gameObject.transform.position = position;
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            CauseDamageByCollision(coll.gameObject.GetComponent<Player>(), basicStat.base_Damage);
+        }
     }
 }

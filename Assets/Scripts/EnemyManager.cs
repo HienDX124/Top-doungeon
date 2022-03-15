@@ -7,16 +7,31 @@ public class EnemyManager : MonoBehaviour
     public GameObject enemyContainer;
     public GameObject enemyPrefab;
     public MapDetails mapDetails;
-    public List<Enemy> enemyList;
+    [HideInInspector] public List<Enemy> enemyList;
 
-
+    public bool isAllEnemyDie;
+    void Update()
+    {
+        CheckAllEnemyDie();
+    }
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.N))
+
+    }
+
+    private bool CheckAllEnemyDie()
+    {
+        isAllEnemyDie = true;
+        foreach (Enemy e in enemyList)
         {
-            SpawnAnEnemy();
+            if (!e._canUse)
+            {
+                isAllEnemyDie = false;
+                return isAllEnemyDie;
+            }
         }
+        return isAllEnemyDie;
     }
 
     public Enemy GetEnemy()

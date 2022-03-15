@@ -19,18 +19,17 @@ public class Weapon : MonoBehaviour
     }
     void Start()
     {
-        UpdateAnimClipTimes();
+        if (player)
+        {
+            UpdateAnimClipTimes();
+        }
     }
-    void OnCollisionEnter2D(Collision2D coll)
+
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Enemy" && owner.tag == "Player")
+        if (coll.gameObject.tag == "Enemy")
         {
             player.CauseDamage(coll.gameObject.GetComponent<Enemy>(), basicStatOwner.base_Damage);
-        }
-
-        if (coll.gameObject.tag == "Player" && owner.gameObject.tag == "Enemy")
-        {
-            enemy.CauseDamageByCollision(coll.gameObject.GetComponent<Player>(), basicStatOwner.base_Damage);
         }
     }
 
