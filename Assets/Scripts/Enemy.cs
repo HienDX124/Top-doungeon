@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     private MapDetails mapDetails;
     [SerializeField] private Vector3 target;
     [SerializeField] private float delayResetMovePoint = 3f;
+    [SerializeField] private float delayCauseDamage = 1f;
     [SerializeField] private bool isAttacking;
     void Awake()
     {
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
         EnemyMovement();
         StartCoroutine(CheckMoveDir());
         UpdateDirection(enemyDirection);
-
+        delayCauseDamage -= Time.deltaTime;
     }
 
     private Vector3 GetRandomPositionInMap()
@@ -96,6 +97,22 @@ public class Enemy : MonoBehaviour
         else
         {
             Death();
+        }
+    }
+
+    public void CauseDamageByCollision(Player player, float damage)
+    {
+        Debug.Log("CauseDamageByCollision call back, delayCauseDamage: " + delayCauseDamage);
+        if (delayCauseDamage < 0)
+        {
+            player.ReceiveDamage(damage);
+
+            GameManager.instance.ShowText("- " + basicStat.base_Damage, 20, Color.red, player.transform.position, Vector3.up * 50, 1.5f);
+
+            delayCauseDamage = 1;
+        }
+        else
+        {
         }
     }
 

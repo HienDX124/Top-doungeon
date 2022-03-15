@@ -5,3 +5,10 @@
     right,
     left
 }
+
+public enum CauseDamageType
+{
+    melee,
+    shoot,
+    collision
+}

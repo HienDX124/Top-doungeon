@@ -113,9 +113,27 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ReceiveDamage(float damage)
+    {
+        if (basicStat.base_HP > 0)
+        {
+            basicStat.base_HP -= damage;
+        }
+        else
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+    }
+
     public void CauseDamage(Enemy enemy, float damage)
     {
         enemy.ReceiveDamage(damage);
+
+        GameManager.instance.ShowText("- " + basicStat.base_Damage, 20, Color.red, enemy.transform.position, Vector3.up * 50, 1.5f);
     }
 
 }

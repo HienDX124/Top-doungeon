@@ -5,28 +5,32 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public GameObject owner;
-    private BasicStat basicStat;
-
+    private BasicStat basicStatOwner;
     private float hitAnimDuration;
     private Player player;
+    private Enemy enemy;
     private Animator animator;
     void Awake()
     {
-        basicStat = owner.GetComponent<BasicStat>();
+        basicStatOwner = owner.GetComponent<BasicStat>();
         player = owner.GetComponent<Player>();
+        enemy = owner.GetComponent<Enemy>();
         animator = GetComponent<Animator>();
     }
-
     void Start()
     {
         UpdateAnimClipTimes();
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.tag == "Enemy" && owner.tag == "Player")
         {
-            player.CauseDamage(coll.gameObject.GetComponent<Enemy>(), player.basicStat.base_Damage);
-            GameManager.instance.ShowText("- " + player.basicStat.base_Damage, 20, Color.red, coll.transform.position, Vector3.up * 50, 1.5f);
+            player.CauseDamage(coll.gameObject.GetComponent<Enemy>(), basicStatOwner.base_Damage);
+        }
+
+        if (coll.gameObject.tag == "Player" && owner.gameObject.tag == "Enemy")
+        {
+            enemy.CauseDamageByCollision(coll.gameObject.GetComponent<Player>(), basicStatOwner.base_Damage);
         }
     }
 

@@ -36,15 +36,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Dialogs\TextFieldDialog.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Dialogs\TextValidator.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Extensions\CenterOnWindow.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntry.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntryHolder.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceStorageAccessor.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferencesEditorWindow.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\RegistryMonitor.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Styles.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\Dialogs\TextFieldDialog.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\Dialogs\TextValidator.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\Extensions\CenterOnWindow.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntry.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntryHolder.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceStorageAccessor.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\PreferencesEditor\PreferencesEditorWindow.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\PreferencesEditor\RegistryMonitor.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor\Styles.cs" />
      <Compile Include="Assets\Tilemap\Custom Brush Scripts\Coordinate Brush\Editor\CoordinateBrush.cs" />
     <Reference Include="UnityEngine">
         <HintPath>E:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

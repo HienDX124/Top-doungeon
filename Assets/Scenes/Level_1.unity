@@ -121,6 +121,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &914965586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6948926318003558710, guid: 97452800530f4ab4185470bb82622baa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6948926316821076016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &914965587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914965586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d962080d7a9ac4aa88b765901fd917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 1944207278}
 --- !u!1 &1824350401
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +186,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapWidth: 30
   mapHieght: 23
+--- !u!1 &1944207278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6948926317928965933, guid: 97452800530f4ab4185470bb82622baa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6948926316821076016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &219289221560070566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12608,6 +12633,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948926318003558714, guid: 97452800530f4ab4185470bb82622baa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948926318003558714, guid: 97452800530f4ab4185470bb82622baa,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948926318003558714, guid: 97452800530f4ab4185470bb82622baa,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948926318003558714, guid: 97452800530f4ab4185470bb82622baa,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97452800530f4ab4185470bb82622baa, type: 3}

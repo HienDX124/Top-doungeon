@@ -36,8 +36,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerPrefsEditor\Editor Resources\ImageManager.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Samples\SampleScene\PlayerPrefsController.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Editor Resources\ImageManager.cs" />
+     <Compile Include="Assets\PluginsForEditor\PlayerPrefsEditor\Samples\SampleScene\PlayerPrefsController.cs" />
      <Compile Include="Assets\Scripts\BasicStat.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enums.cs" />
