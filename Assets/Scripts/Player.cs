@@ -124,11 +124,9 @@ public class Player : MonoBehaviour
             Death();
         }
     }
-
     private void Death()
     {
     }
-
     public void CauseDamage(Enemy enemy, float damage)
     {
         enemy.ReceiveDamage(damage);
